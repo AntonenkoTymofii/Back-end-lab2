@@ -1,24 +1,24 @@
 package org.example.backendlab2.service;
 
-import org.example.backendlab2.model.User;
+import org.example.backendlab2.model.Person;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
-public class UserService {
-    private Map<Long, User> users = new HashMap<>();
+public class PersonService {
+    private Map<Long, Person> users = new HashMap<>();
     private AtomicLong userIdCounter = new AtomicLong();
 
-    public User createUser(String name) {
+    public Person createUser(String name) {
         Long id = userIdCounter.incrementAndGet();
-        User user = new User(id, name);
-        users.put(id, user);
-        return user;
+        Person person = new Person(id, name);
+        users.put(id, person);
+        return person;
     }
 
-    public Optional<User> getUser(Long id) {
+    public Optional<Person> getUser(Long id) {
         return Optional.ofNullable(users.get(id));
     }
 
@@ -26,7 +26,7 @@ public class UserService {
         users.remove(id);
     }
 
-    public List<User> getAllUsers() {
+    public List<Person> getAllUsers() {
         return new ArrayList<>(users.values());
     }
 
