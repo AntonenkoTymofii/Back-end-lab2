@@ -1,7 +1,10 @@
 # Back-end-lab2
 
 ## Web-site:
-Here is deploy: https://back-end-lab2-6g0o.onrender.com/user/1
+
+My variant is 3: 
+
+Here is deploy: https://back-end-lab2-6g0o.onrender.com/person/1
 
 Postman Flow is here: https://web.postman.co/workspace/My-Workspace~108c5fc2-0032-4f7c-80e7-21acb813afc2/flow/671eb86c54c71034dc282b93
 
@@ -37,7 +40,7 @@ docker-compose down
 ```
 
 To see how the application works on your computer,
-follow the link: http://localhost:8080/user/1
+follow the link: http://localhost:8080/person/1
 
 
 ## About project
