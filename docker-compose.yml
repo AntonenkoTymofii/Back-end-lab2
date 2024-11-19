@@ -1,11 +1,26 @@
-version: "3"
+version: '3.1'
+
+volumes:
+  pg_shop:
 
 services:
+  shop_bd:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=P@sS#wOrD
+      - POSTGRES_DB=shop
+    volumes:
+      - pg_shop:/var/lib/postgres/data
+    ports:
+      - "127.0.0.1:5432:5432"
   app:
     restart: always
     build: .
-    container_name: rest-api-container
     ports:
       - "8080:8080"
+    depends_on:
+      - shop_bd
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
+      SPRING_DATASOURCE_URL: 'jdbc:postgresql://shop_bd:5432/shop'
