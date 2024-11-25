@@ -23,6 +23,9 @@ public class Person {
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Record> records;
 
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    private Account account;
+
     public Person(Long id, String name, ArrayList<Record> records) {
         this.id = id;
         this.name = name;
